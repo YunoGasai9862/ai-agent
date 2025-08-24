@@ -12,7 +12,7 @@ class OutputParser(ABC) :
     def get_default_chat_prompt_template(self) -> ChatPromptTemplate:
         return ChatPromptTemplate.from_messages(
                 [("system",
-                    "Yuno's personal research assistance! Wrap the output in this format and provide no other text\n{format_instructions}" 
+                    "Yuno's personal research assistance! Make sure to use the tools and Wrap the output in this format and provide no other text\n{format_instructions}"  #Seems like you need to mention the tools usage explicitly to the LLM 
                 ),
                 (
                     "placeholder", "{chat_history}"
