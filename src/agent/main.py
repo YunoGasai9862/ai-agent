@@ -7,7 +7,8 @@ from langchain.agents import create_tool_calling_agent, AgentExecutor
 from src.constants.agent_constants import AgentConstants
 from src.tools.tools import (
     search_tool,
-    wiki_tool
+    wiki_tool,
+    save_tool
 )
 
 load_dotenv()
@@ -23,7 +24,7 @@ llm = ChatOpenAI(model_name = os.environ['MODEL_NAME'],
 output_parser = OutputParser(response_model=Response)
 prompt = output_parser.get_default_chat_prompt_template()
 
-tools = [search_tool, wiki_tool]
+tools = [search_tool, wiki_tool, save_tool]
 
 agent = create_tool_calling_agent(
     llm=llm,
